@@ -11,6 +11,11 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  get '/users/signup' do
+    #redirect_if_logged_in(session)
+    erb :'users/signup'
+  end
+
 end
 
 #many to many (users have peaks through ascents and peaks have users though ascents.)
