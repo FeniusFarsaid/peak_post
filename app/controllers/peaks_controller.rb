@@ -1,7 +1,8 @@
 class PeaksController < ApplicationController
 
     get '/peaks' do
-        "A list of peaks from the DB"
+        @peaks = Peak.all
+        erb :'/peaks'
     end
 
     get '/peaks/new' do 
