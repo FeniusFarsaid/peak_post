@@ -20,7 +20,9 @@ class UsersController < ApplicationController
         if !logged_in?
             redirect '/'
         else
-        @user = current_user
+            @user = current_user
+            @peaks = Peak.all
+            @ascents = Ascent.all
             erb :'users/user_profile'
         end
     end

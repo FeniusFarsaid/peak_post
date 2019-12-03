@@ -1,7 +1,7 @@
 class AscentsController < ApplicationController
 
     get '/ascents' do
-        erb :'/ascents'
+        erb :'ascents/ascents'
     end
 
     post '/ascents' do

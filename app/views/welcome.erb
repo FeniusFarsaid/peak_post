@@ -8,12 +8,13 @@
   </header>
   <div class="col-md-10 col-md-offset-2">
 
-    <h2><% if !logged_in? %>
-          
-    <a href="/signup">Sign Up</a> or
-    <a href="/login">Login</a> to Record your Ascents.
-
-    <% end %></h2>
+    <h2><% if !logged_in? %>  
+          <a href="/signup">Sign Up</a> or
+          <a href="/login">Login</a> to Record your Ascents.
+      <% else %>
+        Logged in as <%= current_user.username %>
+        <a href="/session">Logout</a>
+      <% end %></h2>
 
     <div class="wrapper">
     <header class="header__title">
