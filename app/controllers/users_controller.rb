@@ -26,7 +26,4 @@ class UsersController < ApplicationController
             erb :'users/user_profile'
         end
     end
-
-    
-
 end

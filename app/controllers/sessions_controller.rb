@@ -19,10 +19,10 @@ class SessionsController < ApplicationController
         end
     end
 
-    delete '/session' do
-        session.clear
-        redirect '/'
+    post '/logout' do
+        if logged_in?
+          session.clear
+          redirect '/'
+        end
     end
-
-
 end 

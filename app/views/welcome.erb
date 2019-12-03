@@ -13,17 +13,19 @@
           <a href="/login">Login</a> to Record your Ascents.
       <% else %>
         Logged in as <%= current_user.username %>
-        <a href="/session">Logout</a>
+        <p><form action="/logout" method="Post">		
+        <input type="submit" value="Logout">	
+        </form></p>
       <% end %></h2>
 
     <div class="wrapper">
     <header class="header__title">
 
     <p><% @peaks.each.with_index(1) do |peak, i| %>
-      <%= "#{i}" %>. 
-      <%= peak.name %>, 
-      <%= peak.location %>, 
-      <%= peak.elevation %>.</p>
+        <%= "#{i}" %>. 
+        <%= peak.name %>, 
+        <%= peak.location %>, 
+        <%= peak.elevation %>.</p>
     <% end %>
 
     <% if logged_in? %>
