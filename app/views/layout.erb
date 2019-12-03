@@ -15,14 +15,7 @@
   </head>
   <body>
     <div class="wrapper">
-<% if !!session[:user_id] %>
-<form action="/session" method="Post">
-<input type="hidden" name="_method" value="delete"> 
-<input type="submit" value="Logout">
-</form>
-<% else %>
-<p> Login </p>
-<% end %>
+
         <%= yield %>
 
       <footer class="branding">

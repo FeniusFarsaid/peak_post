@@ -7,4 +7,5 @@ use Rack::MethodOverride
 use UsersController
 use PeaksController
 use SessionsController
+use AscentsController
 run ApplicationController

@@ -8,11 +8,15 @@
 
   <div class="main__container">
     <p><% @peaks.each.with_index(1) do |peak, i| %>
-    <%= "#{i}" %>
+    <%= "#{i}" %>. 
     <%= peak.name %>, 
     <%= peak.location %>, 
-    <%= peak.elevation %>.</p>
+    <%= peak.elevation %>. <a href="/ascents/new">Add Ascent</a></p>
   <% end %>
+  <p><a href="/newpeak">Add Peak</a></p>
+  <p><a href="/user_profile">Return to your Profile</a></p>
+  <p><a href="/">Home</a></p>
+
 
     
     
