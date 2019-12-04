@@ -5,7 +5,6 @@ class AscentsController < ApplicationController
     end
 
     post '/ascents' do
-        
         if logged_in?  
             @ascent = current_user.ascents.build(peak_id: params[:peak_id].to_i, user_id: current_user.id, datetime: params[:date], route: params[:route])
             if @ascent.save

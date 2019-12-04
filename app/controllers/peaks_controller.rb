@@ -13,4 +13,18 @@ class PeaksController < ApplicationController
         end
     end
 
+    post '/peaks' do
+        #binding.pry
+        if logged_in?  
+            @peak = Peak.new(name: params[:name], location: params[:location], elevation: params[:elevation])
+            if @peak.save
+                redirect '/user_profile'
+                #binding.pry
+            else
+                redirect '/peaks/new'
+            end                
+        else
+            redirect '/login'
+        end
+    end
 end

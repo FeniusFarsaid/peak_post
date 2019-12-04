@@ -12,17 +12,15 @@
 
     
 <form action="/ascents" method="post">
-  <p><label for="">Route:</label>
+  <p><label for="route">Route:</label>
   <input type="text" name="route"></p>
   <p><label for="date">Datetime:</label>
   <input type="text" name="date"></p>
   <select name="peak_id">
           <% @peaks.each.with_index(1) do |peak, i| %>
           <option value="<%= peak.id %>"><%= peak.name %></option>
-        <% end %>
-        </select>
-  <input type="submit" value="Submit">
-  </form>
+  <% end %></select>
+  <input type="submit" value="Submit"></form>
 
   <p><a href="/">Home</a>
   <p><form action="/logout" method="Post">		
