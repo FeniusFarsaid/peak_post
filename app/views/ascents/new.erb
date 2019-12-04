@@ -1,10 +1,30 @@
+<title>New Ascent</title>
+
+<div class="container">
+  <header><img src="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fcom.ft.imagepublish.prod.s3.amazonaws.com%2Fe0e36980-6889-11e5-97d0-1456a776a4f5?fit=scale-down&amp;source=next&amp;width=700
+  " width="300" height=200 class="img-responsive main-image"></header>
+  <div class="col-md-8 col-md-offset-2">
+
+  
+    <h2>Add an Ascent</h2>
+
+    <p>Here should be inputs for datetime and route. User = current_user, Peak = dropdown choice.<p>
+
+    
 <form action="/ascents" method="post"><p>
-#select box
-  <label for="">Name:</label>
-  <input type="text" name="user[username]"></p>
-  <p><label for="user[email]">Email:</label>
-  <input type="text" name="user[email]"></p>
-  <p><label for="user[password]">Password:</label>
-  <input type="password" name="user[password]"></p>
-  <input type="submit" name="signup" value="Submit">
+  <label for="">Route:</label>
+  <input type="text" name="route"></p>
+  <p><label for="date">Datetime:</label>
+  <input type="text" name="date"></p>
+  <select name="peak_id">
+          <% @peaks.each.with_index(1) do |peak, i| %>
+          <option value="<%= peak.id %>"><%= peak.name %></option>
+        <% end %>
+        </select>
+  <input type="submit" value="Submit">
   </form>
+
+  <p><a href="/">Home</a>
+  <p><form action="/logout" method="Post">		
+      <input type="submit" value="Logout">	
+  </form></p>
