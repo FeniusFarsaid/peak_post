@@ -5,11 +5,11 @@ class PeaksController < ApplicationController
         erb :'/peaks'
     end
 
-    get '/newpeak' do 
+    get '/peaks/new' do 
         if !logged_in?
             redirect '/login'
         else
-            erb :'/newpeak'
+            erb :'/peaks/new'
         end
     end
 
