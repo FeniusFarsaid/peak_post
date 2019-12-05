@@ -11,7 +11,8 @@
         <%= "#{i}" %>. 
         <%= ascent.route %>, 
         <%= ascent.datetime %>, 
-        <%= ascent.peak.name %>.</p>
+        <%= ascent.peak.name %> - 
+        <a href="/ascents/<%=ascent.id%>/edit">Edit</a> - <form method="post" action="/ascents/<%= ascent.id %>"><input id="hidden" type="hidden" name="_method" value="DELETE"><input type="submit" value="Delete"></form>
     <% end %>
    
     <p>Add an Ascent from the Peak Post Database: </p>
@@ -23,6 +24,8 @@
     <p><form action="/peaks/new">
         <input type="submit" value="Add a Peak">
     </form></p>
+
+    
     
     <a href="/">Home</a>
     <p><form action="/logout" method="Post">		

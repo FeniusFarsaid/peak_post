@@ -25,3 +25,20 @@
   <p><a href="/newpeak">Add Peak</a></p>
   <p><a href="/user_profile">Return to your Profile</a></p>
   <p><a href="/">Home</a></p>
+
+  #index for users
+
+  <p><% @users.each.with_index(1) do |user, i| %>
+        <%= "#{i}" %>
+        <%= user.username %>
+      <% end %></p>
+
+      <p>Edit an Existing Ascent</p>
+    <a href="/ascents/<%=@ascent.id%>/edit">Edit Ascent</a>
+
+    input[type=submit] {
+    background-color: lightblue;
+    color: #333;
+    font-family: Sans-Serif;
+    line-height: 18px;
+  }

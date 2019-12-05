@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     end
 
     get '/user_profile' do
+        #binding.pry
         if !logged_in?
             redirect '/'
         else

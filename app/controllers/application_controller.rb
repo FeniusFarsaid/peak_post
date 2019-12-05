@@ -11,6 +11,7 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     @peaks = Peak.all
+    @users = User.all
     erb :welcome
   end
 

@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
         #check to see if user.email exists
         #if user exists, authenticate pw
         #redirect accordingly (if yes, peaks, if no, login)
+        
         @user = User.find_by(email: params[:user][:email])
         if @user && @user.authenticate(params[:user][:password])
             session['user_id'] = @user.id

@@ -27,13 +27,45 @@ class AscentsController < ApplicationController
         end
     end
 
-    delete '/ascents/:id' do
-        @ascent = Ascent.find_by(id: params[:id])
-        if logged_in? && @ascent.user_id = current_user.id
-        elsif @ascent.destroy
-            redirect '/ascents'
+    get '/ascents/:id/edit' do 
+        if logged_in?
+            @ascent = current_user.ascents.find_by_id(params[:id])
+            if @ascent && @ascent.user == current_user
+              erb :'ascents/edit'
+            else
+              redirect to '/login'
+            end
+          else
+            redirect to '/login'
+          end
+    end 
+
+    patch '/ascents/:id' do
+        if logged_in?
+            @ascent = current_user.ascents.find_by_id(params[:id])
+            if @ascent
+              if @ascent.update(datetime: params[:datetime], route: params[:route])
+                redirect to "/user_profile"
+              else
+                redirect to "/ascents/#{@ascent.id}/edit"
+              end
+            else
+              redirect to '/user_profile'
+            end
         else
-            redirect '/ascents/<%= @ascent.id %>'
+          redirect to '/login'
+        end
+    end
+
+    delete '/ascents/:id' do
+        if logged_in?
+            @ascent = current_user.ascents.find_by_id(params[:id])
+            if @ascent
+                @ascent.destroy
+            end
+            redirect '/user_profile'
+        else
+            redirect '/login'
         end
     end 
 

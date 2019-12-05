@@ -11,12 +11,12 @@
     <h2><% if !logged_in? %>  
           <a href="/signup">Sign Up</a> or
           <a href="/login">Login</a> to Record your Ascents.
-      <% else %>
+        <% else %>
         Logged in as <%= current_user.username %>
         <p><form action="/logout" method="Post">		
         <input type="submit" value="Logout">	
         </form></p>
-      <% end %></h2>
+        <% end %></h2>
 
     <div class="wrapper">
     <header class="header__title">
