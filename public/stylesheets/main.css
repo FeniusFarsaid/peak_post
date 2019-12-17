@@ -47,6 +47,14 @@
     line-height: 36px;
   }
 
+  input[type=submit] {
+    background-color: white;
+    color: #333;
+    font-family: Sans-Serif;
+    line-height: 30px;
+  }
+
+
   p {
     margin-bottom: 18px;
   }

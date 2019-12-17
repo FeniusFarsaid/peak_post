@@ -37,8 +37,7 @@ class AscentsController < ApplicationController
     get '/ascents/:id/edit' do 
         if logged_in?
             @ascent = current_user.ascents.find_by_id(params[:id])
-            if @ascent && @ascent.user == current_user
-                # && shoudl come out/redundant
+            if @ascent 
               erb :'ascents/edit'
             else
               redirect to '/login'

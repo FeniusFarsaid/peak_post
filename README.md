@@ -37,8 +37,11 @@
     <a href="/ascents/<%=@ascent.id%>/edit">Edit Ascent</a>
 
     input[type=submit] {
-    background-color: lightblue;
+    background-color: grey;
     color: #333;
     font-family: Sans-Serif;
-    line-height: 18px;
+    line-height: 25px;
   }
+
+  <p><form method="post" action="/ascents/<%=ascent.id%>/edit"> 
+        <input id="hidden" type="hidden" name="_method" value="EDIT"><input type="submit" value="Edit"></form>

@@ -12,7 +12,9 @@
         <%= ascent.route %>, 
         <%= ascent.datetime %>, 
         <%= ascent.peak.name %> - 
-        <a href="/ascents/<%=ascent.id%>/edit">Edit</a> - <form method="post" action="/ascents/<%= ascent.id %>">
+        <p><form method="get" action="/ascents/<%=ascent.id%>/edit"> 
+        <input id="hidden" type="hidden" name="_method" value="EDIT"><input type="submit" value="Edit"></form>
+        <form method="post" action="/ascents/<%= ascent.id %>">
         <input id="hidden" type="hidden" name="_method" value="DELETE"><input type="submit" value="Delete"></form>
     <% end %>
    
