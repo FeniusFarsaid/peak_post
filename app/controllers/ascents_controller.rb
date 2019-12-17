@@ -1,15 +1,22 @@
 class AscentsController < ApplicationController
 
     get '/ascents' do
-        erb :'ascents/ascents'
+        if !logged_in?
+            redirect '/'
+        else
+            @user = current_user
+            @ascents = @user.ascents
+            #binding.pry
+            erb :'ascents/index'
+        end
     end
 
     post '/ascents' do
         if logged_in?  
             @ascent = current_user.ascents.build(peak_id: params[:peak_id].to_i, user_id: current_user.id, datetime: params[:date], route: params[:route])
             if @ascent.save
-                redirect '/user_profile'
-                binding.pry
+                redirect '/ascents'
+                #binding.pry
             else
                 redirect '/ascents/new'
             end                
@@ -23,7 +30,7 @@ class AscentsController < ApplicationController
             redirect '/login'
         else
             @peaks = Peak.all
-            erb :'/ascents/new'
+            erb :'ascents/new'
         end
     end
 
@@ -31,6 +38,7 @@ class AscentsController < ApplicationController
         if logged_in?
             @ascent = current_user.ascents.find_by_id(params[:id])
             if @ascent && @ascent.user == current_user
+                # && shoudl come out/redundant
               erb :'ascents/edit'
             else
               redirect to '/login'
@@ -45,12 +53,12 @@ class AscentsController < ApplicationController
             @ascent = current_user.ascents.find_by_id(params[:id])
             if @ascent
               if @ascent.update(datetime: params[:datetime], route: params[:route])
-                redirect to "/user_profile"
+                redirect to "/ascents"
               else
                 redirect to "/ascents/#{@ascent.id}/edit"
               end
             else
-              redirect to '/user_profile'
+              redirect to '/ascents'
             end
         else
           redirect to '/login'
@@ -63,7 +71,7 @@ class AscentsController < ApplicationController
             if @ascent
                 @ascent.destroy
             end
-            redirect '/user_profile'
+            redirect '/ascents'
         else
             redirect '/login'
         end
