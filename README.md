@@ -1,47 +1,34 @@
 
-<div class="container" style="float: left">
-  <header><img src="https://cdn.britannica.com/17/83817-050-67C814CD/Mount-Everest.jpg" width="300" height=200 class="img-responsive main-image">
-  <div style="float: right"> <p>Description</p>
-  </header>
-  <div class="col-md-8 col-md-offset-2">
+# PeakPost
 
-#old peaks view
+This program comprises a Sinatra application for browsing a database of peaks and adding ascents that belong to users. In order to create ascents or peaks, must signup or login.
 
-<title>Peaks</title>
-  <div class="container" style="float: left">
-  <header><img src="https://cdn.britannica.com/17/83817-050-67C814CD/Mount-Everest.jpg" width="300" height=200 class="img-responsive main-image">
-  <div style="float: right"> <p>Description</p>
-  </header>
-  <div class="col-md-8 col-md-offset-2">
-  <h2>Peak Post</h2>
+## Installation
 
-  <div class="main__container">
-    <p><% @peaks.each.with_index(1) do |peak, i| %>
-    <%= "#{i}" %>. 
-    <%= peak.name %>, 
-    <%= peak.location %>, 
-    <%= peak.elevation %>. <a href="/ascents/new">Add Ascent</a></p>
-  <% end %>
-  <p><a href="/newpeak">Add Peak</a></p>
-  <p><a href="/user_profile">Return to your Profile</a></p>
-  <p><a href="/">Home</a></p>
+This program can be cloned from https://github.com/FeniusFarsaid/peak_post.git.
 
-  #index for users
+The user should then run 'bundle install' in the terminal.
 
-  <p><% @users.each.with_index(1) do |user, i| %>
-        <%= "#{i}" %>
-        <%= user.username %>
-      <% end %></p>
+The program is executed with the command: shotgun. Shotgun allows the user to view the application in a browser.
 
-      <p>Edit an Existing Ascent</p>
-    <a href="/ascents/<%=@ascent.id%>/edit">Edit Ascent</a>
+## Usage
 
-    input[type=submit] {
-    background-color: grey;
-    color: #333;
-    font-family: Sans-Serif;
-    line-height: 25px;
-  }
+TODO: Write usage instructions here
 
-  <p><form method="post" action="/ascents/<%=ascent.id%>/edit"> 
-        <input id="hidden" type="hidden" name="_method" value="EDIT"><input type="submit" value="Edit"></form>
+## Development
+
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/peak_post. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the PhraseFinder project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/peak_post/blob/master/CODE_OF_CONDUCT.md).

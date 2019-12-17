@@ -9,11 +9,10 @@ class PeaksController < ApplicationController
     end
 
     post '/peaks' do
-        #binding.pry
         if logged_in?  
             @peak = Peak.new(name: params[:name], location: params[:location], elevation: params[:elevation])
             if @peak.save
-                redirect '/user_profile'
+                redirect '/'
                 #binding.pry
             else
                 redirect '/peaks/new'
