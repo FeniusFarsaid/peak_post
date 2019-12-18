@@ -6,7 +6,6 @@ class AscentsController < ApplicationController
         else
             @user = current_user
             @ascents = @user.ascents
-            #binding.pry
             erb :'ascents/index'
         end
     end
@@ -16,8 +15,8 @@ class AscentsController < ApplicationController
             @ascent = current_user.ascents.build(peak_id: params[:peak_id].to_i, user_id: current_user.id, datetime: params[:date], route: params[:route])
             if @ascent.save
                 redirect '/ascents'
-                #binding.pry
             else
+                flash[:message] = "One or more required fields empty."
                 redirect '/ascents/new'
             end                
         else

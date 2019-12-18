@@ -7,7 +7,7 @@ This program comprises a Sinatra application for browsing a database of peaks an
 
 This program can be cloned from https://github.com/FeniusFarsaid/peak_post.git.
 
-The user should then run 'bundle install' in the terminal.
+The user should then run 'bundle install' and 'rake db:migrate' in the terminal.
 
 The program is executed with the command: shotgun. Shotgun allows the user to view the application in a browser.
 

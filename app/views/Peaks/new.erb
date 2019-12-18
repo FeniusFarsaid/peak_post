@@ -7,6 +7,10 @@
 
 <h2>Add a Peak</h2>
 
+<% if flash.has?(:message) %>
+          <p><%= flash[:message] %></p>
+        <% end %>
+
 <form action="/peaks" method="post"><p>
   <label for="name">Name:</label>
   <input type="text" name="name"></p>

@@ -8,6 +8,10 @@
   <h2>Welcome to Peak Post</h2>
 
   <h3>Please fill out the form below to sign up and start logging routes and ascents.</h3>
+
+  <% if flash.has?(:message) %>
+          <p><%= flash[:message] %></p>
+        <% end %>
   
   <form action="/signup" method="post"><p>
   <label for="user[username]">Name:</label>

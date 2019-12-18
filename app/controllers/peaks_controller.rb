@@ -13,8 +13,8 @@ class PeaksController < ApplicationController
             @peak = Peak.new(name: params[:name], location: params[:location], elevation: params[:elevation])
             if @peak.save
                 redirect '/'
-                #binding.pry
             else
+                flash[:message] = "One or more required fields empty."
                 redirect '/peaks/new'
             end                
         else
